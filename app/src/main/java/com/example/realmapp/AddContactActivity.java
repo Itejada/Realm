@@ -20,7 +20,7 @@ public class AddContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_contact);
 
         final EditText ETnombre = findViewById(R.id.nombrePersona);
-        final EditText ETapellido = findViewById(R.id.nombrePersona);
+        final EditText ETapellido = findViewById(R.id.apellidoPersona);
         final EditText ETedad = findViewById(R.id.edadPersona);
         final RadioButton CHgeneroF = findViewById(R.id.female_radioB_add);
         final RadioButton CHgeneroM = findViewById(R.id.male_radioB_add);

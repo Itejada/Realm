@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
@@ -35,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Inicializamos realm.
         Realm.init(this);
+        final RealmConfiguration configuration = new RealmConfiguration.Builder().name("sample.realm").schemaVersion(1).build();
+        Realm.setDefaultConfiguration(configuration);
+        Realm.getInstance(configuration);
 
         //Creamos objeto realm.
-        Realm realm = Realm.getDefaultInstance();
+        Realm realm = Realm.getInstance(configuration);
 
         //Indicamos los contactos que queremos cargar en la lista y los almacenamos en el adaptador.
         OrderedRealmCollection orderedRealmCollection = realm.where(Persona.class).findAll().sort("nombre");

@@ -19,12 +19,14 @@ public class ShowContactActivity extends AppCompatActivity {
 
         final TextView TVgenero = findViewById(R.id.Tv_genero_detail);
         final TextView TVnombre = findViewById(R.id.nombrePersona);
+        final TextView TVapellido = findViewById(R.id.apellidoPersona);
         final TextView TVedad = findViewById(R.id.edadPersona);
 
         Realm realm = Realm.getDefaultInstance();
 
         Intent intent = getIntent();
         String nombre = intent.getStringExtra(PersonaRealmAdapter.NOMBRE);
+        String apellido = intent.getStringExtra(PersonaRealmAdapter.APELLIDO);
         RealmQuery<Persona> query = realm.where(Persona.class).contains("nombre",nombre);
         Persona persona = query.findFirst();
 
@@ -33,6 +35,7 @@ public class ShowContactActivity extends AppCompatActivity {
             String genero = persona.getGenero();
 
             TVnombre.setText(nombre);
+            TVapellido.setText(apellido);
             TVedad.setText(String.valueOf(edad));
             TVgenero.setText(String.valueOf(genero));
         }

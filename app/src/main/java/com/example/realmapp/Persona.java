@@ -6,24 +6,27 @@ import io.realm.annotations.PrimaryKey;
 
 public class Persona extends RealmObject {
 
-    public enum Genero{
-        M,F,N
+    public enum Genero {
+        M, F, N
     }
 
     @PrimaryKey
-    private String nombre,apellido;
+    private String nombre;
+
+    private String apellido;
 
     private int edad;
     private String genero;
 
 
-    public Persona() {}
+    public Persona() {
+    }
 
     public Persona(String nombre, String apellido, int edad, String genero) {
-        this.nombre=nombre;
-        this.apellido=apellido;
-        this.edad=edad;
-        this.genero=genero;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.genero = genero;
     }
 
     public String getNombre() {

@@ -21,6 +21,7 @@ public class EditContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_contact);
 
         final EditText ETnombre = findViewById(R.id.nombrePersona);
+        final EditText ETapellido= findViewById(R.id.apellidoPersona);
         final EditText ETedad = findViewById(R.id.edadPersona);
         final RadioButton RBgeneroF = findViewById(R.id.F_radio_button_edit);
         final RadioButton RBgeneroM = findViewById(R.id.M_radio_button_edit);
@@ -49,6 +50,7 @@ public class EditContactActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int edad = Integer.valueOf(ETedad.getText().toString());
                 String nombre= ETnombre.getText().toString();
+                String apellido= ETapellido.getText().toString();
                 String genero = Persona.Genero.N.toString();
 
                 if(RBgeneroM.isChecked()){
@@ -60,7 +62,7 @@ public class EditContactActivity extends AppCompatActivity {
                     genero = Persona.Genero.M.toString();
                 }
 
-                Persona persona = new Persona(nombre,edad,genero);
+                Persona persona = new Persona(nombre,apellido,edad,genero);
                 realm.beginTransaction();//iniciamos la transaccion
                 realm.copyToRealmOrUpdate(persona);//si encuentra una persona con la misma primary key la actualiza, sino la crea
                 realm.commitTransaction();//se envia a transaccion

@@ -20,6 +20,8 @@ import io.realm.RealmRecyclerViewAdapter;
 public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
 
     public static final String NOMBRE ="Nombre";
+    public static final String APELLIDO ="Apellido";
+
     OrderedRealmCollection data;
     String[] opciones = {"Visualizar Contacto", "Editar Contacto", "Borrar Contacto", "Salir"};
     Realm realm = Realm.getDefaultInstance();
@@ -60,6 +62,7 @@ public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
                             case 0:
                                 Intent intent = new Intent(context, ShowContactActivity.class);
                                 intent.putExtra(NOMBRE, persona.getNombre());
+                                intent.putExtra(APELLIDO, persona.getApellido());
                                 context.startActivity(intent);
                                 break;
                             case 1:
@@ -68,6 +71,7 @@ public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Intent intent = new Intent(context, EditContactActivity.class);
                                         intent.putExtra(NOMBRE, persona.getNombre());
+                                        intent.putExtra(APELLIDO, persona.getApellido());
                                         context.startActivity(intent);
                                     }
                                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
