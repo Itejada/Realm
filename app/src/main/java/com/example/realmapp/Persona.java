@@ -11,7 +11,7 @@ public class Persona extends RealmObject {
     }
 
     @PrimaryKey
-    private String nombre;
+    private String nombre,apellido;
 
     private int edad;
     private String genero;
@@ -19,8 +19,9 @@ public class Persona extends RealmObject {
 
     public Persona() {}
 
-    public Persona(String nombre, int edad, String genero) {
+    public Persona(String nombre, String apellido, int edad, String genero) {
         this.nombre=nombre;
+        this.apellido=apellido;
         this.edad=edad;
         this.genero=genero;
     }
@@ -49,5 +50,15 @@ public class Persona extends RealmObject {
         this.genero = genero.toString();
     }
 
+    public String getApellido() {
+        return apellido;
+    }
 
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 }

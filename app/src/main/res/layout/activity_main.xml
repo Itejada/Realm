@@ -144,15 +144,15 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addContact"
-        android:layout_width="70dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"
         android:layout_marginLeft="-50dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="#ffffff"
+        android:backgroundTint="#72360D0D"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
 </RelativeLayout>

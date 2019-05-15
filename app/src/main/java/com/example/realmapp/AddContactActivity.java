@@ -20,6 +20,7 @@ public class AddContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_contact);
 
         final EditText ETnombre = findViewById(R.id.nombrePersona);
+        final EditText ETapellido = findViewById(R.id.nombrePersona);
         final EditText ETedad = findViewById(R.id.edadPersona);
         final RadioButton CHgeneroF = findViewById(R.id.female_radioB_add);
         final RadioButton CHgeneroM = findViewById(R.id.male_radioB_add);
@@ -34,6 +35,7 @@ public class AddContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nombre = ETnombre.getText().toString();
+                String apellido=  ETapellido.getText().toString();
                 int edad = Integer.valueOf(ETedad.getText().toString());
                 String genero = Persona.Genero.N.toString();
 
@@ -45,7 +47,7 @@ public class AddContactActivity extends AppCompatActivity {
                     genero = Persona.Genero.M.toString();
                 }
 
-                Persona persona = new Persona(nombre,edad,genero);
+                Persona persona = new Persona(nombre, apellido,edad,genero);
 
                 realm.beginTransaction();
                 realm.copyToRealm(persona);

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Identificamos el botoón de restablecer filtro de búsqueda.
-        Button buttonRestablecer = findViewById(R.id.restablecerBusqueda);
+        Button buttonRestablecer = findViewById(R.id.restablecer);
 
         //Identificamos campos del filtro de búsqueda.
         TextView TVEdad1 = findViewById(R.id.edad1);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button buttonFiltrar = findViewById(R.id.filtrarBusqueda);
+        Button buttonFiltrar = findViewById(R.id.filtrar);
 
         checkBoxMujer.setOnClickListener(new View.OnClickListener() {
             @Override
