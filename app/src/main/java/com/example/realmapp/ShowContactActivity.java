@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.realmapp.Persona;
-
 import io.realm.Realm;
 import io.realm.RealmQuery;
 
@@ -17,16 +15,16 @@ public class ShowContactActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_contact);
+        setContentView(R.layout.activity_contact_show);
 
+        final TextView TVgenero = findViewById(R.id.Tv_genero_detail);
         final TextView TVnombre = findViewById(R.id.nombrePersona);
         final TextView TVedad = findViewById(R.id.edadPersona);
-        final TextView TVgenero = findViewById(R.id.Tv_genero_detail);
 
         Realm realm = Realm.getDefaultInstance();
 
         Intent intent = getIntent();
-        String nombre = intent.getStringExtra("Nombre");
+        String nombre = intent.getStringExtra(PersonaRealmAdapter.NOMBRE);
         RealmQuery<Persona> query = realm.where(Persona.class).contains("nombre",nombre);
         Persona persona = query.findFirst();
 

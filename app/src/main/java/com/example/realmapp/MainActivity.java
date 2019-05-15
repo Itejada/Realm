@@ -66,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
         //Identificamos campos del filtro de búsqueda.
         TextView TVEdad1 = findViewById(R.id.edad1);
         TextView TVEdad2 = findViewById(R.id.edad2);
-        CheckBox cbHombre = findViewById(R.id.hombre);
-        CheckBox cbMujer = findViewById(R.id.mujer);
-        CheckBox cbAmbos = findViewById(R.id.ambos);
+        CheckBox checkBoxAmbos = findViewById(R.id.ambos);
+        CheckBox checkBoxHombre = findViewById(R.id.hombre);
+        CheckBox checkBoxMujer = findViewById(R.id.mujer);
 
 
         /*Listener del botón de restablecerer, donde seteamos todos los campos de búsqueda a valores nulos/vacios
@@ -79,40 +79,35 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 TVEdad1.setText("");
                 TVEdad2.setText("");
-                cbHombre.setChecked(false);
-                cbMujer.setChecked(false);
-                cbAmbos.setChecked(false);
+                checkBoxHombre.setChecked(false);
+                checkBoxMujer.setChecked(false);
+                checkBoxAmbos.setChecked(false);
                 recyclerView.setAdapter(personaRealmAdapter);//muestra la base de datos sin filtros
             }
         });
 
-        //Identificamos el botón de filtrar búsqueda
         Button buttonFiltrar = findViewById(R.id.filtrarBusqueda);
 
-        //Añadimos listener al CheckBox de hombre (Para evitar seleccionar dos a la vez)
-        cbHombre.setOnClickListener(new View.OnClickListener() {
+        checkBoxMujer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cbMujer.setChecked(false);
-                cbAmbos.setChecked(false);
+                checkBoxAmbos.setChecked(false);
+                checkBoxHombre.setChecked(false);
+            }
+        });
+        checkBoxHombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkBoxMujer.setChecked(false);
+                checkBoxAmbos.setChecked(false);
             }
         });
 
-        //^Igual
-        cbMujer.setOnClickListener(new View.OnClickListener() {
+        checkBoxAmbos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cbHombre.setChecked(false);
-                cbAmbos.setChecked(false);
-            }
-        });
-
-        //^Igual
-        cbAmbos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cbHombre.setChecked(false);
-                cbMujer.setChecked(false);
+                checkBoxHombre.setChecked(false);
+                checkBoxMujer.setChecked(false);
             }
         });
 
@@ -131,9 +126,9 @@ public class MainActivity extends AppCompatActivity {
                     edad2 = 0;
                 }
 
-                //Identificamos el estado de los checkBox
-                boolean stateCbHombre = cbHombre.isChecked();
-                boolean stateCbMujer = cbMujer.isChecked();
+                //Identificamos el estado de los checkBoxAmbos
+                boolean stateCbHombre = checkBoxHombre.isChecked();
+                boolean stateCbMujer = checkBoxMujer.isChecked();
 
                 //Creamos la query a realizar.
                 RealmQuery<Persona> query = null;

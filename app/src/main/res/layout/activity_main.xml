@@ -118,23 +118,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_marginBottom="20dp">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Restablecer búsqueda"
-                android:layout_gravity="end"
-                android:id="@+id/restablecerBusqueda"/>
+                android:text="Restablecer"
+                android:id="@+id/restablecer"/>
 
             <Button
+                android:id="@+id/filtrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Filtrar búsqueda"
-                android:layout_gravity="end"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:id="@+id/filtrarBusqueda"/>
+                android:text="Filtrar" />
 
         </LinearLayout>
 
