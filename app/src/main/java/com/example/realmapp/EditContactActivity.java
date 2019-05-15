@@ -29,7 +29,8 @@ public class EditContactActivity extends AppCompatActivity {
         Realm realm = Realm.getDefaultInstance();
 
         Intent intent = getIntent();
-        String nombre = intent.getStringExtra("Nombre");
+        String nombre = intent.getStringExtra(PersonaRealmAdapter.NOMBRE);
+        String apellido = intent.getStringExtra(PersonaRealmAdapter.APELLIDO);
         RealmQuery<Persona> query = realm.where(Persona.class).contains("nombre",nombre);
         Persona persona = query.findFirst();
 
@@ -38,6 +39,7 @@ public class EditContactActivity extends AppCompatActivity {
             String genero = persona.getGenero();
 
             ETnombre.setText(nombre);
+            ETapellido.setText(apellido);
             ETedad.setText(String.valueOf(edad));
             RBgeneroF.setChecked(persona.getGenero()== Persona.Genero.F.toString());
             RBgeneroM.setChecked(persona.getGenero()== Persona.Genero.M.toString());

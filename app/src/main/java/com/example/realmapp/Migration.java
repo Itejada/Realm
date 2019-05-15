@@ -12,11 +12,10 @@ public class Migration implements RealmMigration {
     public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
         RealmSchema schema = realm.getSchema();
 
-        if(oldVersion == 0) {
+        if(oldVersion == 1) {
             Log.d("Migration", "actualitzant a la versió 1");
-            RealmObjectSchema cinemaSchema = schema.get("Persona");
-            cinemaSchema.addIndex("apellido");
-            oldVersion++;
+            RealmObjectSchema personaSchema = schema.get("Persona");
+            personaSchema.addField("apellido", String.class);
         }
     }
 }

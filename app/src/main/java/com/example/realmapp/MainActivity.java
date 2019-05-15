@@ -36,7 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
         //Inicializamos realm.
         Realm.init(this);
-        final RealmConfiguration configuration = new RealmConfiguration.Builder().name("sample.realm").schemaVersion(1).build();
+        final RealmConfiguration configuration = new RealmConfiguration.Builder()
+                .name("sample.realm")
+                .schemaVersion(2)
+                .migration(new Migration())
+                .build();
         Realm.setDefaultConfiguration(configuration);
         Realm.getInstance(configuration);
 
