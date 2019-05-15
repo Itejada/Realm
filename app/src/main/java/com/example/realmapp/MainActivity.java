@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
@@ -35,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Inicializamos realm.
         Realm.init(this);
-
+        final RealmConfiguration configuration = new RealmConfiguration.Builder().name("sample.realm").schemaVersion(1).build();
+        Realm.setDefaultConfiguration(configuration);
+        Realm.getInstance(configuration);
         //Creamos objeto realm.
         Realm realm = Realm.getDefaultInstance();
 
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Identificamos el botoón de restablecer filtro de búsqueda.
-        Button buttonRestablecer = findViewById(R.id.restablecerBusqueda);
+        Button buttonRestablecer = findViewById(R.id.restablecer);
 
         //Identificamos campos del filtro de búsqueda.
         TextView TVEdad1 = findViewById(R.id.edad1);
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button buttonFiltrar = findViewById(R.id.filtrarBusqueda);
+        Button buttonFiltrar = findViewById(R.id.filtrar);
 
         checkBoxMujer.setOnClickListener(new View.OnClickListener() {
             @Override
