@@ -5,8 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.realmapp.Persona;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -20,7 +21,7 @@ public class ShowContactActivity extends AppCompatActivity {
 
         final TextView TVnombre = findViewById(R.id.nombrePersona);
         final TextView TVedad = findViewById(R.id.edadPersona);
-        final TextView TVgenero = findViewById(R.id.generoPersona);
+        final TextView TVgenero = findViewById(R.id.Tv_genero_detail);
 
         Realm realm = Realm.getDefaultInstance();
 
@@ -35,7 +36,7 @@ public class ShowContactActivity extends AppCompatActivity {
 
             TVnombre.setText(nombre);
             TVedad.setText(String.valueOf(edad));
-            TVgenero.setText(genero);
+            TVgenero.setText(String.valueOf(genero));
         }
 
         Button volverAtras = findViewById(R.id.volverAtras);

@@ -4,7 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+
+import com.example.realmapp.Persona;
 
 import io.realm.Realm;
 
@@ -17,9 +21,13 @@ public class AddContactActivity extends AppCompatActivity {
 
         final EditText ETnombre = findViewById(R.id.nombrePersona);
         final EditText ETedad = findViewById(R.id.edadPersona);
-        final EditText ETgenero = findViewById(R.id.generoPersona);
+        final RadioButton CHgeneroF = findViewById(R.id.female_radioB_add);
+        final RadioButton CHgeneroM = findViewById(R.id.male_radioB_add);
+
 
         Realm realm = Realm.getDefaultInstance();
+
+
 
         Button addButton = findViewById(R.id.anadirPersona);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -27,7 +35,15 @@ public class AddContactActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String nombre = ETnombre.getText().toString();
                 int edad = Integer.valueOf(ETedad.getText().toString());
-                String genero = ETgenero.getText().toString();
+                String genero = Persona.Genero.N.toString();
+
+               if(CHgeneroF.isChecked()){
+
+                 genero = Persona.Genero.F.toString();
+               }else if(CHgeneroM.isChecked()){
+
+                    genero = Persona.Genero.M.toString();
+                }
 
                 Persona persona = new Persona(nombre,edad,genero);
 

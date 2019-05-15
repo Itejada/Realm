@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 
@@ -35,7 +36,8 @@ public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
 
         ((ContactoViewHolder) viewHolder).nombrePersona.setText(persona.getNombre());
         ((ContactoViewHolder) viewHolder).edadPersona.setText(String.valueOf(persona.getEdad()));
-        ((ContactoViewHolder) viewHolder).generoPersona.setText(persona.getGenero());
+        ((ContactoViewHolder) viewHolder).generoPersonaF.setText(String.valueOf(persona.getGenero()));
+
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +51,7 @@ public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
         viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                android.app.AlertDialog.Builder dialogo = new AlertDialog.Builder(context);
+                android.app.AlertDialog.Builder dialogo = new AlertDialog.Builder(context);//una ventana emergente
                 dialogo.setTitle("¿Que acción deseas realizar?")
                     .setItems(opciones, new DialogInterface.OnClickListener() {
                     @Override
@@ -118,13 +120,15 @@ public class PersonaRealmAdapter extends RealmRecyclerViewAdapter {
     class ContactoViewHolder extends RecyclerView.ViewHolder {
         private TextView nombrePersona;
         private TextView edadPersona;
-        private TextView generoPersona;
+        private TextView generoPersonaF;
 
         ContactoViewHolder(View item_contacto) {
             super(item_contacto);
             nombrePersona = item_contacto.findViewById(R.id.nombrePersona);
             edadPersona = item_contacto.findViewById(R.id.edadPersona);
-            generoPersona = item_contacto.findViewById(R.id.generoPersona);
+            generoPersonaF = item_contacto.findViewById(R.id.generoPersona);
+
+
         }
     }
 

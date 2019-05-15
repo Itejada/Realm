@@ -12,14 +12,10 @@
         <activity
             android:name=".EditContactActivity"
             android:label="@string/title_activity_edit_contact"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".borrarla"
-            android:label="@string/title_activity_borrarla"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".ShowContactActivity" />
         <activity android:name=".AddContactActivity" />
-        <activity android:name=".AgendaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

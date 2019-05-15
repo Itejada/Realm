@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     //TODO: En el MainActivity, mostrar la agenda, y un botón de añadir contacto.
     //TODO: Arriba del todo tener el filtro.
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    @RequiresApi(api = Build.VERSION_CODES.N)//por el foreach
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         //Seteamos el adaptador al recyclerView.
         recyclerView.setAdapter(personaRealmAdapter);
 
-        //Identificamos el listener del FloatingActionButton y le añadimos un listener.
+        //Identificamos el  FloatingActionButton y le añadimos un listener.
         FloatingActionButton floatingActionButton = findViewById(R.id.addContact);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 cbHombre.setChecked(false);
                 cbMujer.setChecked(false);
                 cbAmbos.setChecked(false);
-                recyclerView.setAdapter(personaRealmAdapter);
+                recyclerView.setAdapter(personaRealmAdapter);//muestra la base de datos sin filtros
             }
         });
 
@@ -125,9 +125,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     edad1 = Integer.valueOf(TVEdad1.getText().toString());
                     edad2 = Integer.valueOf(TVEdad2.getText().toString());
-                }
-                //Si da algún error, pondremos valor 0.
-                catch (NumberFormatException nfe) {
+
+                }catch (NumberFormatException nfe) {
                     edad1 = 0;
                     edad2 = 0;
                 }
@@ -137,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean stateCbMujer = cbMujer.isChecked();
 
                 //Creamos la query a realizar.
-                RealmQuery<Persona>  query = null;
+                RealmQuery<Persona> query = null;
 
                 //Si el rango de edades es> 0, buscaremos dentro de ese rango.
                 if(edad1 > 0 && edad2 > 0) {
@@ -146,15 +145,15 @@ public class MainActivity extends AppCompatActivity {
                 //Si el Checkbox de hombre está seleccionado buscaremos por ese género.
                 if(stateCbHombre) {
                     if(query != null) {
-                        query = query.and().contains("genero","Hombre");
+                        query = query.and().contains("genero","M");
                     }else {
-                        query = realm.where(Persona.class).contains("genero","Hombre");
+                        query = realm.where(Persona.class).contains("genero","M");
                     }
                 }else if(stateCbMujer) {
                     if(query != null) {
-                        query = query.and().contains("genero","Mujer");
+                        query = query.and().contains("genero","F");
                     }else {
-                        query = realm.where(Persona.class).contains("genero","Mujer");
+                        query = realm.where(Persona.class).contains("genero","F");
                     }
                 //Si no se ha marcado ningun Checkbox
                 }else {

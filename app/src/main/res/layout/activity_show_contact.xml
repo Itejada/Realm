@@ -1,86 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
-    android:padding="5dp"
-    android:orientation="vertical"
     tools:context=".ShowContactActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:layout_margin="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre: "
-            android:width="100dp"/>
+        android:width="100dp"
+        android:text="Nombre: "
+        app:layout_constraintBottom_toTopOf="@+id/nombrePersona"
+        app:layout_constraintStart_toStartOf="@+id/nombrePersona" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Introduce nombre"
-            android:id="@+id/nombrePersona"
-            android:focusable="false" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/nombrePersona"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:layout_margin="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edad: "
-            android:width="100dp"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:focusable="false"
+        android:hint="Introduce nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Introduce edad"
-            android:id="@+id/edadPersona"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:layout_margin="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Género: "
-            android:width="100dp"/>
+        android:layout_marginTop="8dp"
+        android:width="100dp"
+        android:text="Edad: "
+        app:layout_constraintStart_toStartOf="@+id/edadPersona"
+        app:layout_constraintTop_toBottomOf="@+id/nombrePersona" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Introduce género"
-            android:id="@+id/generoPersona"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/edadPersona"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        android:padding="5dp">
-
-        <Button
-            android:id="@+id/volverAtras"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginLeft="200dp"
-            android:text="Volver atrás" />
-    </LinearLayout>
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Introduce edad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:width="100dp"
+        android:text="Género: "
+        app:layout_constraintStart_toStartOf="@+id/Tv_genero_detail"
+        app:layout_constraintTop_toBottomOf="@+id/edadPersona" />
+
+    <TextView
+        android:id="@+id/Tv_genero_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Introduce edad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+
+    <Button
+        android:id="@+id/volverAtras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="24dp"
+        android:text="Volver atrás"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Tv_genero_detail" />
+
+
+</android.support.constraint.ConstraintLayout>
